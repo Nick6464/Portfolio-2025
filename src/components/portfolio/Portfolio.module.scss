@@ -1,0 +1,30 @@
+@import "../../variables.modules";
+
+.portfolio {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: $dark;
+  padding: 2rem;
+}
+
+.content {
+  max-width: 1200px;
+  width: 100%;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: $purple;
+    text-align: center;
+  }
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}

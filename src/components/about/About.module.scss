@@ -1,0 +1,28 @@
+@import "../../variables.modules";
+
+.about {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $dark;
+  padding: 2rem;
+}
+
+.content {
+  max-width: 800px;
+  text-align: center;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: $purple;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: $white;
+  }
+}
