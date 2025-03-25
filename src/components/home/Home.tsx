@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from './Home.module.scss';
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import classNames from 'classnames';
 import EmojiBullet from './EmojiBullet';
 import { info } from '../../info/Info';
@@ -9,6 +9,8 @@ import Terminal from '../about/Terminal';
 import SocialIcon from './SocialIcon';
 
 const Home: React.FC = () => {
+  const theme = useTheme();
+
   return (
     <Box
       component={'main'}
@@ -40,7 +42,7 @@ const Home: React.FC = () => {
           mt={'2rem'}
         >
           <Terminal>
-            <h1>
+            <h1 style={{ color: theme.palette.text.primary }}>
               Hi, I'm{' '}
               <span
                 style={{
@@ -55,8 +57,18 @@ const Home: React.FC = () => {
               </span>
               <span className={Style.hand}>🤚</span>
             </h1>
-            <h2>I'm {info.position}.</h2>
-            <Box component={'ul'} p={'0.8rem'}>
+            <h2 style={{ color: theme.palette.text.secondary }}>
+              I'm {info.position}.
+            </h2>
+            <Box
+              component={'ul'}
+              p={'0.8rem'}
+              sx={{
+                '& li': {
+                  color: theme.palette.text.secondary,
+                },
+              }}
+            >
               {info.miniBio.map((bio, index) => (
                 <EmojiBullet key={index} emoji={bio.emoji} text={bio.text} />
               ))}
@@ -66,6 +78,15 @@ const Home: React.FC = () => {
               gap={'1.5rem'}
               justifyContent={'center'}
               fontSize={{ xs: '2rem', md: '2.5rem' }}
+              sx={{
+                '& a': {
+                  color: theme.palette.text.secondary,
+                  transition: 'color 0.2s ease-in-out',
+                  '&:hover': {
+                    color: theme.palette.text.primary,
+                  },
+                },
+              }}
             >
               {info.socials.map((social, index) => (
                 <SocialIcon
