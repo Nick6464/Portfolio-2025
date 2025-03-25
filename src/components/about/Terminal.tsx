@@ -1,26 +1,44 @@
 import React from 'react';
-import { Box } from '@mui/material';
 import styles from './Terminal.module.scss';
+import classNames from 'classnames';
+import { Box } from '@mui/material';
 
 interface TerminalProps {
-  children: React.ReactNode;
+  text?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const Terminal: React.FC<TerminalProps> = ({ children }) => {
+const Terminal: React.FC<TerminalProps> = ({ text, children }) => {
   return (
     <Box
-      className={styles.terminal}
-      sx={{
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        borderRadius: '10px',
-        padding: '2rem',
-        color: '#fff',
-        fontFamily: 'monospace',
-        maxWidth: '600px',
-        width: '100%',
-      }}
+      component={'section'}
+      className={classNames(styles.terminal, styles.shadowed)}
+      width={children ? { xs: '95%', md: '100%' } : { xs: '95%', md: '50%' }}
+      borderRadius={'0.5rem'}
+      mb={children ? '4rem' : undefined}
     >
-      {children}
+      <Box
+        sx={{ backgroundColor: '#8c8c8c' }}
+        p={'0.5rem'}
+        borderRadius={'0.5rem 0.5rem 0 0'}
+        fontSize={'1rem'}
+        display="flex"
+        gap="8px"
+      >
+        <div className={styles.button} style={{ backgroundColor: '#ff5f56' }} />
+        <div className={styles.button} style={{ backgroundColor: '#ffbd2e' }} />
+        <div className={styles.button} style={{ backgroundColor: '#27c93f' }} />
+      </Box>
+      <Box
+        py={{ xs: '1rem', md: '2rem' }}
+        px={{ xs: '2rem', md: '3rem' }}
+        borderRadius={'0 0 0.5rem 0.5rem'}
+        sx={{ backgroundColor: '#27242f' }}
+        fontSize={'1.5rem'}
+        fontFamily={'Courier New, Courier, monospace'}
+      >
+        {text || children}
+      </Box>
     </Box>
   );
 };

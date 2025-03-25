@@ -2,6 +2,8 @@
 
 i {
   padding-left: 0.5rem;
+  font-size: 1rem;
+  line-height: 1;
 
   &.red {
     color: $red;
@@ -14,6 +16,12 @@ i {
   &.green {
     color: $green;
   }
+}
+
+.button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
 }
 
 .terminal {
