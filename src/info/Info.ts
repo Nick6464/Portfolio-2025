@@ -17,7 +17,6 @@ export interface Info {
   position: string;
   selfPortrait: string;
   gradient: string;
-  baseColor: string;
   miniBio: Array<{
     emoji: string;
     text: string;
@@ -51,7 +50,6 @@ export const info: Info = {
   position: 'a Senior Full Stack Engineer',
   selfPortrait: self,
   gradient: `-webkit-linear-gradient(135deg, ${colors})`,
-  baseColor: colors[0],
   miniBio: [
     {
       emoji: '🌎',
