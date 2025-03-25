@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Button, Grid2 as Grid, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import Terminal from '../about/Terminal';
 import { Code, OpenInNew } from '@mui/icons-material';
+import styles from './PortfolioBlock.module.scss';
 
 interface PortfolioBlockProps {
   image: string;
@@ -9,6 +10,22 @@ interface PortfolioBlockProps {
   source: string;
   title: string;
 }
+
+interface TerminalButtonProps {
+  icon?: React.ReactNode;
+  href?: string;
+  children: React.ReactNode;
+}
+
+const TerminalButton = ({ icon, href, children }: TerminalButtonProps) => {
+  const buttonProps = {
+    startIcon: icon,
+    variant: 'contained' as const,
+    ...(href ? { href, target: '_blank' as const } : {}),
+  };
+
+  return <Button {...buttonProps}>{children}</Button>;
+};
 
 const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
   image,
@@ -19,21 +36,18 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
   return (
     <Terminal>
       <Box
+        className={styles.container}
         display={'flex'}
         flexDirection={'column'}
         justifyContent={'center'}
         alignItems={'center'}
       >
         <Box
-          width={'100%'}
-          height={'100%'}
-          maxWidth={'500px'}
-          maxHeight={'500px'}
+          className={styles.image}
           component={'img'}
           src={image}
           alt={'mockup'}
           sx={theme => ({
-            borderRadius: 2,
             border: `1px solid ${
               theme.palette.mode === 'dark'
                 ? 'rgba(255,255,255,0.1)'
@@ -42,6 +56,7 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
           })}
         />
         <Typography
+          className={styles.title}
           variant="h1"
           sx={theme => ({
             fontSize: '2rem',
@@ -53,65 +68,23 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
         >
           {title}
         </Typography>
-        <Grid
-          container
-          justifyContent={'center'}
-          className={'portfolio'}
-          spacing={2}
+        <Box
+          className={styles.buttonContainer}
+          sx={{
+            display: 'flex',
+            gap: 2,
+            mt: 2,
+          }}
         >
           {live && (
-            <Grid size={6}>
-              <Grid container justifyContent={'center'}>
-                <Button
-                  startIcon={<OpenInNew />}
-                  variant="contained"
-                  href={live}
-                  target="_blank"
-                  sx={theme => ({
-                    backgroundColor:
-                      theme.palette.mode === 'dark' ? '#1D1B23' : '#2C2C2C',
-                    color: theme.palette.common.white,
-                    fontFamily: 'Courier New, Courier, monospace',
-                    transition: 'all 0.2s ease-in-out',
-                    '&:hover': {
-                      backgroundColor:
-                        theme.palette.mode === 'dark' ? '#2A2833' : '#3C3C3C',
-                      transform: 'translateY(-2px)',
-                    },
-                    padding: '8px 24px',
-                  })}
-                >
-                  Live Demo
-                </Button>
-              </Grid>
-            </Grid>
+            <TerminalButton icon={<OpenInNew />} href={live}>
+              Live Demo
+            </TerminalButton>
           )}
-          <Grid size={6}>
-            <Grid container justifyContent={'center'}>
-              <Button
-                startIcon={<Code />}
-                variant="contained"
-                href={source}
-                target="_blank"
-                sx={theme => ({
-                  backgroundColor:
-                    theme.palette.mode === 'dark' ? '#1D1B23' : '#2C2C2C',
-                  color: theme.palette.common.white,
-                  fontFamily: 'Courier New, Courier, monospace',
-                  transition: 'all 0.2s ease-in-out',
-                  '&:hover': {
-                    backgroundColor:
-                      theme.palette.mode === 'dark' ? '#2A2833' : '#3C3C3C',
-                    transform: 'translateY(-2px)',
-                  },
-                  padding: '8px 24px',
-                })}
-              >
-                Source Code
-              </Button>
-            </Grid>
-          </Grid>
-        </Grid>
+          <TerminalButton icon={<Code />} href={source}>
+            Source Code
+          </TerminalButton>
+        </Box>
       </Box>
     </Terminal>
   );
