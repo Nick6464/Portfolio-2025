@@ -1,0 +1,32 @@
+@use '../variables.modules' as *;
+
+footer {
+  color: $white;
+}
+
+.dark {
+  background-color: $dark;
+  color: $white;
+  transition: all 400ms;
+
+  a,
+  i,
+  li {
+    color: $white;
+    transition: color 400ms;
+  }
+
+  a:visited {
+    color: $white;
+  }
+
+  footer {
+    color: $white;
+  }
+}
+
+.light {
+  background-color: $skyblue;
+  color: $white;
+  transition: all 400ms;
+}

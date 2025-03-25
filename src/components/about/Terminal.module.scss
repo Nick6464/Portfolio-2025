@@ -1,0 +1,39 @@
+@import '../../variables.modules';
+
+i {
+  padding-left: 0.5rem;
+  font-size: 1rem;
+  line-height: 1;
+
+  &.red {
+    color: $red;
+  }
+
+  &.amber {
+    color: $yellow;
+  }
+
+  &.green {
+    color: $green;
+  }
+}
+
+.button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal {
+  p,
+  li {
+    margin: 1rem 0;
+    color: $white;
+  }
+
+  a,
+  a:visited {
+    animation: changeColors 3s infinite;
+    font-weight: bold;
+  }
+}
