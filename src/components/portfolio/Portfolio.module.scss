@@ -1,4 +1,4 @@
-@import "../../variables.modules";
+@use '../../variables.modules' as *;
 
 .portfolio {
   width: 100%;
@@ -23,7 +23,7 @@
 }
 
 .projects {
-  display: grid;
+  display: Grid2;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   padding: 1rem;

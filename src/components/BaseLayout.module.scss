@@ -1,18 +1,32 @@
-@import "../variables.modules";
+@use '../variables.modules' as *;
 
-.container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: $dark;
+footer {
+  color: $white;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 2rem;
+.dark {
+  background-color: $dark;
+  color: $white;
+  transition: all 400ms;
+
+  a,
+  i,
+  li {
+    color: $white;
+    transition: color 400ms;
+  }
+
+  a:visited {
+    color: $white;
+  }
+
+  footer {
+    color: $white;
+  }
+}
+
+.light {
+  background-color: $skyblue;
+  color: $white;
+  transition: all 400ms;
 }

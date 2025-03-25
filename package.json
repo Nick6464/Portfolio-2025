@@ -10,7 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/icons-material": "^6.4.8",
+    "@mui/material": "^6.4.8",
+    "@react-three/fiber": "^9.1.0",
     "@types/three": "^0.174.0",
+    "classnames": "^2.5.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.4.0",
