@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./Portfolio.module.scss";
+import React from 'react';
+import styles from './Portfolio.module.scss';
 
 const Portfolio: React.FC = () => {
   return (

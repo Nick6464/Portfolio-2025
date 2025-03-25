@@ -1,31 +1,23 @@
-@import "../variables.modules";
+@use '../variables.modules' as *;
 
-.navbar {
-  width: 100%;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background-color: $dark;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+nav {
+  transition: $transition;
 }
 
-.navLinks {
-  display: flex;
-  gap: 2rem;
+.active {
+  border-bottom: 5px solid;
+  border-image-slice: 1;
 }
 
-.link {
-  color: $white;
-  text-decoration: none;
-  font-size: 1.2rem;
+li {
   transition: $transition;
 
   &:hover {
-    color: $purple;
+    transform: translateY(-3px);
+    transition: $transition;
   }
+}
 
-  &.active {
-    color: $pink;
-  }
+.link:hover {
+  color: unset;
 }

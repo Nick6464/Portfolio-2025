@@ -1,28 +1,21 @@
-@import "../../variables.modules";
+@use '../../variables.modules' as *;
 
-.about {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $dark;
-  padding: 2rem;
+.pink {
+  color: $pink;
 }
 
-.content {
-  max-width: 800px;
-  text-align: center;
+.green {
+  color: $green;
+}
 
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    color: $purple;
+.skills {
+  columns: 1;
+  @media only screen and (min-width: 940px) {
+    columns: 2;
   }
 
-  p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: $white;
+  li {
+    margin: 0;
+    line-height: 1.75;
   }
 }
