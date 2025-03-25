@@ -3,6 +3,12 @@ import { createTheme } from '@mui/material/styles';
 export const lightTheme = createTheme({
   palette: {
     mode: 'light',
+    primary: {
+      main: 'rgb(25, 64, 192)',
+    },
+    secondary: {
+      main: 'rgb(166,104,255)',
+    },
     background: {
       default: '#ffffff',
       paper: '#f5f5f5',
@@ -47,6 +53,12 @@ export const lightTheme = createTheme({
 
 export const darkTheme = createTheme({
   palette: {
+    primary: {
+      main: 'rgb(0,255,164)',
+    },
+    secondary: {
+      main: 'rgb(166,104,255)',
+    },
     mode: 'dark',
     background: {
       default: '#121212',

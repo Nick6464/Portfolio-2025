@@ -1,27 +1,29 @@
 import React from 'react';
 import styles from './About.module.scss';
 import Terminal from './Terminal';
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import { info } from '../../info/Info';
 
 const About: React.FC = () => {
+  const theme = useTheme();
   const firstName = info.firstName.toLowerCase();
 
   function aboutMeText() {
     return (
       <>
         <p>
-          <span style={{ color: info.baseColor }}>
+          <span style={{ color: theme.palette.primary.main }}>
             {firstName}
             {info.lastName.toLowerCase()} $
           </span>{' '}
-          cat about{firstName}{' '}
+          <span style={{ color: theme.palette.secondary.main }}>cat</span> about
+          {firstName}{' '}
         </p>
         <p>
-          <span style={{ color: info.baseColor }}>
+          <span style={{ color: theme.palette.primary.main }}>
             about{firstName} <span className={styles.green}>(main)</span> $
           </span>{' '}
-          {info.bio}
+          <span style={{ color: theme.palette.text.primary }}>{info.bio}</span>
         </p>
       </>
     );
@@ -31,28 +33,33 @@ const About: React.FC = () => {
     return (
       <>
         <p>
-          <span style={{ color: info.baseColor }}>
+          <span style={{ color: theme.palette.primary.main }}>
             {firstName}
             {info.lastName.toLowerCase()} $
           </span>{' '}
-          cd skills/tools
+          <span style={{ color: theme.palette.secondary.main }}>cd</span>{' '}
+          skills/tools
         </p>
         <p>
-          <span style={{ color: info.baseColor }}>
+          <span style={{ color: theme.palette.primary.main }}>
             skills/tools <span className={styles.green}>(main)</span> $
           </span>{' '}
-          ls
+          <span style={{ color: theme.palette.secondary.main }}>ls</span>
         </p>
-        <p style={{ color: info.baseColor }}> Proficient With</p>
+        <p style={{ color: theme.palette.primary.main }}> Proficient With</p>
         <ul className={styles.skills}>
           {info.skills.proficientWith.map((proficiency, index) => (
-            <li key={index}>{proficiency}</li>
+            <li key={index} style={{ color: theme.palette.text.primary }}>
+              {proficiency}
+            </li>
           ))}
         </ul>
-        <p style={{ color: info.baseColor }}> Exposed To</p>
+        <p style={{ color: theme.palette.primary.main }}> Exposed To</p>
         <ul className={styles.skills}>
           {info.skills.exposedTo.map((skill, index) => (
-            <li key={index}>{skill}</li>
+            <li key={index} style={{ color: theme.palette.text.primary }}>
+              {skill}
+            </li>
           ))}
         </ul>
       </>
@@ -63,21 +70,22 @@ const About: React.FC = () => {
     return (
       <>
         <p>
-          <span style={{ color: info.baseColor }}>
+          <span style={{ color: theme.palette.primary.main }}>
             {firstName}
             {info.lastName.toLowerCase()} $
           </span>{' '}
-          cd hobbies/interests
+          <span style={{ color: theme.palette.secondary.main }}>cd</span>{' '}
+          hobbies/interests
         </p>
         <p>
-          <span style={{ color: info.baseColor }}>
+          <span style={{ color: theme.palette.primary.main }}>
             hobbies/interests <span className={styles.green}>(main)</span> $
           </span>{' '}
-          ls
+          <span style={{ color: theme.palette.secondary.main }}>ls</span>
         </p>
         <ul>
           {info.hobbies.map((hobby, index) => (
-            <li key={index}>
+            <li key={index} style={{ color: theme.palette.text.primary }}>
               <Box component={'span'} mr={'1rem'}>
                 {hobby.emoji}
               </Box>
