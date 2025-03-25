@@ -18,7 +18,10 @@ const Terminal: React.FC<TerminalProps> = ({ text, children }) => {
       mb={children ? '4rem' : undefined}
     >
       <Box
-        sx={{ backgroundColor: '#8c8c8c' }}
+        sx={theme => ({
+          backgroundColor:
+            theme.palette.mode === 'dark' ? '#8c8c8c' : '#e0e0e0',
+        })}
         p={'0.5rem'}
         borderRadius={'0.5rem 0.5rem 0 0'}
         fontSize={'1rem'}
@@ -33,7 +36,10 @@ const Terminal: React.FC<TerminalProps> = ({ text, children }) => {
         py={{ xs: '1rem', md: '2rem' }}
         px={{ xs: '2rem', md: '3rem' }}
         borderRadius={'0 0 0.5rem 0.5rem'}
-        sx={{ backgroundColor: '#27242f' }}
+        sx={theme => ({
+          backgroundColor:
+            theme.palette.mode === 'dark' ? '#27242f' : '#f5f5f5',
+        })}
         fontSize={'1.5rem'}
         fontFamily={'Courier New, Courier, monospace'}
       >
