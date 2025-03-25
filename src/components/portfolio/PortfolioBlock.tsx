@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Typography, useTheme } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import Terminal from '../about/Terminal';
 import { Code, OpenInNew } from '@mui/icons-material';
 import styles from './PortfolioBlock.module.scss';
@@ -18,16 +18,10 @@ interface TerminalButtonProps {
 }
 
 const TerminalButton = ({ icon, href, children }: TerminalButtonProps) => {
-  const theme = useTheme();
   const buttonProps = {
     startIcon: icon,
     variant: 'contained' as const,
     ...(href ? { href, target: '_blank' as const } : {}),
-    className: `${styles.terminalButton} ${
-      styles[
-        `terminalButton${theme.palette.mode === 'dark' ? 'Dark' : 'Light'}`
-      ]
-    }`,
   };
 
   return <Button {...buttonProps}>{children}</Button>;
@@ -39,22 +33,49 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
   source,
   title,
 }) => {
-  const theme = useTheme();
   return (
     <Terminal>
-      <Box className={styles.container}>
+      <Box
+        className={styles.container}
+        display={'flex'}
+        flexDirection={'column'}
+        justifyContent={'center'}
+        alignItems={'center'}
+      >
         <Box
+          className={styles.image}
           component={'img'}
           src={image}
           alt={'mockup'}
-          className={`${styles.image} ${
-            styles[`image${theme.palette.mode === 'dark' ? 'Dark' : 'Light'}`]
-          }`}
+          sx={theme => ({
+            border: `1px solid ${
+              theme.palette.mode === 'dark'
+                ? 'rgba(255,255,255,0.1)'
+                : 'rgba(0,0,0,0.1)'
+            }`,
+          })}
         />
-        <Typography variant="h1" className={styles.title}>
+        <Typography
+          className={styles.title}
+          variant="h1"
+          sx={theme => ({
+            fontSize: '2rem',
+            margin: '1.5rem 0',
+            fontWeight: 600,
+            color: theme.palette.text.primary,
+            fontFamily: 'Courier New, Courier, monospace',
+          })}
+        >
           {title}
         </Typography>
-        <Box className={styles.buttonContainer}>
+        <Box
+          className={styles.buttonContainer}
+          sx={{
+            display: 'flex',
+            gap: 2,
+            mt: 2,
+          }}
+        >
           {live && (
             <TerminalButton icon={<OpenInNew />} href={live}>
               Live Demo
