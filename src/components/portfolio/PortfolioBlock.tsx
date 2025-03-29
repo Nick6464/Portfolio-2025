@@ -7,7 +7,7 @@ import styles from './PortfolioBlock.module.scss';
 interface PortfolioBlockProps {
   image: string;
   live?: string;
-  source: string;
+  source?: string;
   title: string;
 }
 
@@ -81,9 +81,11 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
               Live Demo
             </TerminalButton>
           )}
-          <TerminalButton icon={<Code />} href={source}>
-            Source Code
-          </TerminalButton>
+          {source && (
+            <TerminalButton icon={<Code />} href={source}>
+              Source Code
+            </TerminalButton>
+          )}
         </Box>
       </Box>
     </Terminal>
