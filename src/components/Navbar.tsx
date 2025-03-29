@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import styles from './Navbar.module.scss';
 import Toggler from './home/Toggler';
 import { info } from '../info/Info';
@@ -13,12 +13,12 @@ interface NavbarProps {
 
 const links = [
   {
-    name: 'Home',
+    name: 'home',
     to: '/',
     active: 'Home',
   },
   {
-    name: 'About Me',
+    name: 'about me',
     to: '/about',
     active: 'About',
   },
@@ -29,7 +29,7 @@ const links = [
     active: 'Home',
   },
   {
-    name: 'Portfolio',
+    name: 'portfolio',
     to: '/portfolio',
     active: 'Portfolio',
   },
@@ -44,57 +44,77 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, handleClick }) => {
   );
 
   return (
-    <Box component={'nav'} width={'100%'}>
-      <Box
-        component={'ul'}
-        display={'flex'}
-        justifyContent={'center'}
-        alignItems={'center'}
-        gap={{ xs: '2rem', md: '8rem' }}
-        textTransform={'lowercase'}
-        fontSize={'1rem'}
-      >
-        {links.map((link, index) => {
-          if (link.type && window.innerWidth <= 400) return null;
-          return (
-            <Box
-              key={index}
-              component={'li'}
-              className={
-                link.active === active && !link.type ? styles.active : ''
-              }
-              sx={{
-                borderImageSource: info.gradient,
-                ...(link.type && {
-                  height: 60,
-                  width: 60,
-                }),
-              }}
-            >
-              <Link
-                to={link.to}
-                onClick={() => setActive(link.active)}
-                className={styles.link}
-                style={{ color: darkMode ? 'white' : 'black' }}
+    <Box
+      component={'nav'}
+      width={'100%'}
+      sx={{
+        backgroundColor: 'transparent',
+      }}
+    >
+      <Container maxWidth="lg">
+        <Box
+          component={'ul'}
+          display={'flex'}
+          justifyContent={'center'}
+          alignItems={'center'}
+          gap={{ xs: '1.5rem', sm: '2rem' }}
+          textTransform={'lowercase'}
+          fontSize={'1rem'}
+          py={2}
+          sx={{
+            '& > li': {
+              display: 'flex',
+              alignItems: 'center',
+            },
+          }}
+        >
+          {links.map((link, index) => {
+            if (link.type && window.innerWidth <= 400) return null;
+            return (
+              <Box
+                key={index}
+                component={'li'}
+                className={
+                  link.active === active && !link.type ? styles.active : ''
+                }
+                sx={{
+                  borderImageSource: info.gradient,
+                  ...(link.type && {
+                    height: { xs: 40, sm: 50, md: 60 },
+                    width: { xs: 40, sm: 50, md: 60 },
+                    margin: '0 1rem',
+                  }),
+                }}
               >
-                {!link.type && (
-                  <p style={{ padding: '0.5rem 0' }}>{link.name}</p>
-                )}
-                {link.type && (
-                  <img
-                    style={{ height: 60, width: 60 }}
-                    src={link.name}
-                    alt={'logo'}
-                  />
-                )}
-              </Link>
-            </Box>
-          );
-        })}
-        <li>
-          <Toggler darkMode={darkMode} handleClick={handleClick} />
-        </li>
-      </Box>
+                <Link
+                  to={link.to}
+                  onClick={() => setActive(link.active)}
+                  className={styles.link}
+                  style={{ color: darkMode ? 'white' : 'black' }}
+                >
+                  {!link.type && (
+                    <span style={{ padding: '0.5rem 0' }}>{link.name}</span>
+                  )}
+                  {link.type && (
+                    <img
+                      style={{
+                        height: '100%',
+                        width: '100%',
+                        objectFit: 'contain',
+                      }}
+                      src={link.name}
+                      alt={'logo'}
+                    />
+                  )}
+                </Link>
+              </Box>
+            );
+          })}
+          <li>
+            <Toggler darkMode={darkMode} handleClick={handleClick} />
+          </li>
+        </Box>
+      </Container>
     </Box>
   );
 };

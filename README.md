@@ -1,54 +1,41 @@
-# React + TypeScript + Vite
+# My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my portfolio! This repository showcases my work, interests, and some of my public projects.
 
-Currently, two official plugins are available:
+This portfolio website is based on a template created by Payton, which can be found [here](https://github.com/paytonjewell/ReactPortfolioTemplate). I've customized and improved upon the original template to suit my preferences and showcase my skills.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Hosting:** The site is hosted using an Amplify web app, with DNS hosted Route 53.
+- **Deployment:** Deployment is handled using GitHub actions.
+- **Mockup Images:** I generate mockup images using [Pixeltrue](https://mockups.pixeltrue.com/).
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Background
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+One of the most significant additions to my portfolio is the background. I utilized Three.js and React Three Fiber (R3F) for this purpose. While it was my first experience with these libraries, my background in 3D work from my university days provided a good foundation.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+I hadn't worked on 3D modeling since my university project, where I created a Ray Tracing Scene in C++. For the planet model, I followed a tutorial and converted the file to a format compatible with Three.js.
+
+The goal was to have a slowly spinning planet, partially off the page, as demonstrated below:
+
+![Planet Half Demo](https://github.com/Nick6464/Portfolio/blob/master/src/img/planetHalfDemo.png)
+
+Once I had the initial model rendering, I adjusted its size and position to achieve the desired effect. To enhance the dark mode, I added stars to the canvas, creating a sky-like appearance.
+
+I noticed the planet's rotation rate was tied to the framerate, resulting in varied speeds across different monitors. To rectify this, I linked the rotation to time rather than framerate, ensuring consistency across platforms. Additionally, I adjusted the light mode background color to a sky blue, complementing the aesthetic.
+
+---
+
+## Terminal Consistency
+
+The terminal window styling stood out to me, so I implemented it wherever a box was used. This included the Home page with my information and the Projects page. Some modifications were necessary to ensure the terminal could handle images and other components, not just text.
+
+---
+
+These changes brought the entire site together, creating an immersive experience that, in my opinion, better represents my skills and unique style compared to the original template.
+
+---

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Typography, useTheme } from '@mui/material';
 import Terminal from '../about/Terminal';
 import { Code, OpenInNew } from '@mui/icons-material';
 import styles from './PortfolioBlock.module.scss';
@@ -33,6 +33,7 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
   source,
   title,
 }) => {
+  const theme = useTheme();
   return (
     <Terminal>
       <Box
@@ -43,18 +44,17 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
         alignItems={'center'}
       >
         <Box
-          className={styles.image}
-          component={'img'}
-          src={image}
-          alt={'mockup'}
-          sx={theme => ({
-            border: `1px solid ${
-              theme.palette.mode === 'dark'
-                ? 'rgba(255,255,255,0.1)'
-                : 'rgba(0,0,0,0.1)'
-            }`,
-          })}
-        />
+          className={`${styles.imageWrapper} ${
+            theme.palette.mode === 'dark' ? styles.imageDark : styles.imageLight
+          }`}
+        >
+          <Box
+            className={styles.image}
+            component={'img'}
+            src={image}
+            alt={'mockup'}
+          />
+        </Box>
         <Typography
           className={styles.title}
           variant="h1"

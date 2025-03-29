@@ -83,7 +83,7 @@ const About: React.FC = () => {
           </span>{' '}
           <span style={{ color: theme.palette.secondary.main }}>ls</span>
         </p>
-        <ul>
+        <ul className={styles.hobbies}>
           {info.hobbies.map((hobby, index) => (
             <li key={index} style={{ color: theme.palette.text.primary }}>
               <Box component={'span'} mr={'1rem'}>
