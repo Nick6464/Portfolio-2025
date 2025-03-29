@@ -2,7 +2,7 @@ $purple: #8d53ff;
 $pink: #ca6be6;
 $white: #faf9f6;
 $dark: #1f1f1f;
-$red: #ff6057;
+$red: #ff5f56;
 $yellow: #ffbd2e;
 $green: #27c93f;
 $lightgray: #c9c9c9;
@@ -12,4 +12,12 @@ $transition: all 250ms ease;
 
 .shadowed {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+:root {
+  --text-color: #000000;
+}
+
+[data-theme='dark'] {
+  --text-color: #ffffff;
 }
