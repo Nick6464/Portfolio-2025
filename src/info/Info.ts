@@ -7,6 +7,7 @@ import mock1 from '../assets/mock1.png';
 import mock2 from '../assets/mock2.png';
 import mock3 from '../assets/mock3.png';
 import mock4 from '../assets/mock4.png';
+import nzbrLogo from '../assets/nzbr-logo.png';
 
 export const colors = ['rgb(0,255,164)', 'rgb(166,104,255)'];
 
@@ -38,7 +39,7 @@ export interface Info {
   portfolio: Array<{
     title: string;
     live?: string;
-    source: string;
+    source?: string;
     image: string;
   }>;
 }
@@ -126,6 +127,17 @@ export const info: Info = {
   ],
   portfolio: [
     {
+      title: 'NZ Boat Register',
+      live: 'https://nzboatregister.co.nz',
+      image: nzbrLogo,
+    },
+    {
+      title: 'Portfolio',
+      live: 'https://www.waltonit.dev',
+      source: 'https://github.com/Nick6464/Portfolio',
+      image: mock3,
+    },
+    {
       title: 'GaragePi',
       live: 'https://www.garagepi.site',
       source: 'https://github.com/Nick6464/garagepi-frontend',
@@ -140,12 +152,6 @@ export const info: Info = {
       title: 'Minecraft Hardcore Tracker',
       source: 'https://github.com/Nick6464/Nicks-Hardcore',
       image: mock2,
-    },
-    {
-      title: 'Portfolio',
-      live: 'https://www.waltonit.dev',
-      source: 'https://github.com/Nick6464/Portfolio',
-      image: mock3,
     },
   ],
 };
