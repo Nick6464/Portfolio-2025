@@ -41,6 +41,7 @@ export interface Info {
     live?: string;
     source?: string;
     image: string;
+    description?: string;
   }>;
 }
 
@@ -130,28 +131,38 @@ export const info: Info = {
       title: 'NZ Boat Register',
       live: 'https://nzboatregister.co.nz',
       image: nzbrLogo,
+      description:
+        'A comprehensive boat registration system for New Zealand waters, leveraging NFC ID Tags',
     },
     {
       title: 'Portfolio',
       live: 'https://www.waltonit.dev',
       source: 'https://github.com/Nick6464/Portfolio',
       image: mock3,
+      description:
+        'A modern, responsive portfolio website showcasing my projects and skills.',
     },
     {
       title: 'GaragePi',
       live: 'https://www.garagepi.site',
       source: 'https://github.com/Nick6464/garagepi-frontend',
       image: mock1,
+      description:
+        'A smart garage door control system using Raspberry Pi Pico, React and AWS Core IoT.',
     },
     {
       title: 'Procedual Generation of Flying Islands',
       source: 'https://www.github.com/Nick6464/FlyingIslands',
       image: mock4,
+      description:
+        'A procedural generation algorithm for creating unique floating island landscapes using OpenSimplex Noise',
     },
     {
       title: 'Minecraft Hardcore Tracker',
       source: 'https://github.com/Nick6464/Nicks-Hardcore',
       image: mock2,
+      description:
+        'A tool for tracking and managing Minecraft hardcore world statistics.',
     },
   ],
 };

@@ -9,6 +9,7 @@ interface PortfolioBlockProps {
   live?: string;
   source?: string;
   title: string;
+  description?: string;
 }
 
 interface TerminalButtonProps {
@@ -32,6 +33,7 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
   live,
   source,
   title,
+  description,
 }) => {
   const theme = useTheme();
   return (
@@ -68,6 +70,21 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
         >
           {title}
         </Typography>
+        {description && (
+          <Typography
+            sx={theme => ({
+              textAlign: 'center',
+              maxWidth: '600px',
+              margin: '0 1rem 1.5rem 1rem',
+              color: theme.palette.text.secondary,
+              fontFamily: 'Courier New, Courier, monospace',
+              fontSize: '1rem',
+              lineHeight: 1.5,
+            })}
+          >
+            {description}
+          </Typography>
+        )}
         <Box
           className={styles.buttonContainer}
           sx={{
