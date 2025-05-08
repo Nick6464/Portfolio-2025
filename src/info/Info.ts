@@ -137,18 +137,10 @@ export const info: Info = {
     {
       title: 'Portfolio',
       live: 'https://www.waltonit.dev',
-      source: 'https://github.com/Nick6464/Portfolio',
+      source: 'https://github.com/Nick6464/Portfolio-2025',
       image: mock3,
       description:
         'A modern, responsive portfolio website showcasing my projects and skills.',
-    },
-    {
-      title: 'GaragePi',
-      live: 'https://www.garagepi.site',
-      source: 'https://github.com/Nick6464/garagepi-frontend',
-      image: mock1,
-      description:
-        'A smart garage door control system using Raspberry Pi Pico, React and AWS Core IoT.',
     },
     {
       title: 'Procedual Generation of Flying Islands',
@@ -157,6 +149,14 @@ export const info: Info = {
       description:
         'A procedural generation algorithm for creating unique floating island landscapes using OpenSimplex Noise',
     },
+    {
+      title: 'GaragePi',
+      source: 'https://github.com/Nick6464/garagepi-frontend',
+      image: mock1,
+      description:
+        'A smart garage door control system using Raspberry Pi Pico, React and AWS Core IoT.',
+    },
+
     {
       title: 'Minecraft Hardcore Tracker',
       source: 'https://github.com/Nick6464/Nicks-Hardcore',

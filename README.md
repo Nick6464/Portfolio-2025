@@ -22,7 +22,7 @@ I hadn't worked on 3D modeling since my university project, where I created a Ra
 
 The goal was to have a slowly spinning planet, partially off the page, as demonstrated below:
 
-![Planet Half Demo](https://github.com/Nick6464/Portfolio/blob/master/src/img/planetHalfDemo.png)
+![Planet Half Demo](https://github.com/Nick6464/Portfolio-2025/blob/main/src/assets/planteHalfDemo.png)
 
 Once I had the initial model rendering, I adjusted its size and position to achieve the desired effect. To enhance the dark mode, I added stars to the canvas, creating a sky-like appearance.
 
