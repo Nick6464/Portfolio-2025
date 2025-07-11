@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './home/Home';
 import About from './about/About';
 import Portfolio from './portfolio/Portfolio';
+import MossPoleCalculator from './MossPoleCalculator';
 import styles from './BaseLayout.module.scss';
 import Navbar from './Navbar';
 import { Box, Grid2, ThemeProvider } from '@mui/material';
@@ -52,6 +53,10 @@ const BaseLayout: React.FC = () => {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/portfolio" element={<Portfolio />} />
+              <Route
+                path="/f47ac10b-58cc-4372-a567-0e02b2c3d479/mossPoleCalculator"
+                element={<MossPoleCalculator />}
+              />
             </Routes>
           </Grid2>
         </Grid2>
