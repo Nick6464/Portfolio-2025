@@ -4,6 +4,7 @@ import Home from './home/Home';
 import About from './about/About';
 import Portfolio from './portfolio/Portfolio';
 import MossPoleCalculator from './MossPoleCalculator';
+import SupplierNotebook from './SupplierNotebook';
 import styles from './BaseLayout.module.scss';
 import Navbar from './Navbar';
 import { Box, Grid2, ThemeProvider } from '@mui/material';
@@ -56,6 +57,10 @@ const BaseLayout: React.FC = () => {
               <Route
                 path="/f47ac10b-58cc-4372-a567-0e02b2c3d479/mossPoleCalculator"
                 element={<MossPoleCalculator />}
+              />
+              <Route
+                path="/a1b2c3d4-5e6f-7890-abcd-ef1234567890/supplierNotebook"
+                element={<SupplierNotebook />}
               />
             </Routes>
           </Grid2>
