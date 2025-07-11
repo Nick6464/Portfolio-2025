@@ -16,14 +16,7 @@ import {
   Chip,
 } from '@mui/material';
 import { Delete, Edit, Add, Launch } from '@mui/icons-material';
-
-interface SupplierEntry {
-  id: string;
-  name: string;
-  url: string;
-  category: string;
-  notes?: string;
-}
+import type { SupplierEntry } from './types';
 
 const SupplierNotebook: React.FC = () => {
   const [suppliers, setSuppliers] = useState<SupplierEntry[]>([]);
