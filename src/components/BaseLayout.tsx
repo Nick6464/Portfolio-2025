@@ -54,6 +54,12 @@ const BaseLayout: React.FC = () => {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/portfolio" element={<Portfolio />} />
+              {/*  */}
+              {/* Well well well, if it isn't someone having a snoop? */}
+              {/* This I make moss poles and this was a little tool I made to help me calculate the costs */}
+              {/* It's not private, but it's not something I'm wanting to share with the world */}
+              {/* I'm not sure if I'll keep it up to date, but it's here for now */}
+              {/*  */}
               <Route
                 path="/f47ac10b-58cc-4372-a567-0e02b2c3d479/mossPoleCalculator"
                 element={<MossPoleCalculator />}
