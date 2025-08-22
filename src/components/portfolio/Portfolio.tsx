@@ -8,9 +8,6 @@ const Portfolio: React.FC = () => {
     <Box
       sx={{
         margin: 2,
-        maxWidth: 1920,
-        marginLeft: 'auto',
-        marginRight: 'auto',
       }}
     >
       <Grid container display={'flex'} justifyContent={'center'} spacing={2}>
@@ -20,7 +17,6 @@ const Portfolio: React.FC = () => {
               display={'flex'}
               flexDirection={'column'}
               alignItems={'center'}
-              mt={'3rem'}
             >
               <PortfolioBlock
                 image={project.image}

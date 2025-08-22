@@ -49,7 +49,15 @@ const BaseLayout: React.FC = () => {
           <Grid2>
             <Navbar darkMode={darkMode} handleClick={handleToggleDarkMode} />
           </Grid2>
-          <Grid2 flexGrow={1}>
+          <Grid2
+            flexGrow={1}
+            sx={{
+              maxWidth: '1400px',
+              width: '100%',
+              margin: '0 auto',
+              padding: { xs: '0 1rem', sm: '0 2rem' },
+            }}
+          >
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />

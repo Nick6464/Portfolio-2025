@@ -15,7 +15,7 @@ const Terminal: React.FC<TerminalProps> = ({ text, children }) => {
       className={classNames(styles.terminal, styles.shadowed)}
       width={children ? { xs: '95%', md: '100%' } : { xs: '95%', md: '50%' }}
       borderRadius={'0.5rem'}
-      mb={children ? '4rem' : undefined}
+      mb={children ? '2rem' : undefined}
     >
       <Box
         sx={theme => ({
