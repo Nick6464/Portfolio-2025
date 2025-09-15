@@ -14,6 +14,9 @@ const Terminal: React.FC<TerminalProps> = ({ text, children }) => {
       component={'section'}
       className={classNames(styles.terminal, styles.shadowed)}
       width={children ? { xs: '95%', md: '100%' } : { xs: '95%', md: '50%' }}
+      height={children ? '100%' : undefined}
+      display={children ? 'flex' : undefined}
+      flexDirection={children ? 'column' : undefined}
       borderRadius={'0.5rem'}
       mb={children ? '2rem' : undefined}
     >
@@ -39,6 +42,9 @@ const Terminal: React.FC<TerminalProps> = ({ text, children }) => {
         sx={theme => ({
           backgroundColor:
             theme.palette.mode === 'dark' ? '#27242f' : '#f5f5f5',
+          flexGrow: children ? 1 : undefined,
+          display: children ? 'flex' : undefined,
+          flexDirection: children ? 'column' : undefined,
         })}
         fontSize={'1.5rem'}
         fontFamily={'Courier New, Courier, monospace'}

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Box, Button, Typography, useTheme } from '@mui/material';
 import Terminal from '../about/Terminal';
-import { Code, OpenInNew } from '@mui/icons-material';
+import { Code, OpenInNew, SvgIconComponent } from '@mui/icons-material';
 import styles from './PortfolioBlock.module.scss';
 
 interface PortfolioBlockProps {
-  image: string;
+  image?: string;
+  icon?: SvgIconComponent;
   live?: string;
   source?: string;
   title: string;
@@ -30,6 +31,7 @@ const TerminalButton = ({ icon, href, children }: TerminalButtonProps) => {
 
 const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
   image,
+  icon,
   live,
   source,
   title,
@@ -37,75 +39,100 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
 }) => {
   const theme = useTheme();
   return (
-    <Terminal>
-      <Box
-        className={styles.container}
-        display={'flex'}
-        flexDirection={'column'}
-        justifyContent={'center'}
-        alignItems={'center'}
-      >
+    <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <Terminal>
         <Box
-          className={`${styles.imageWrapper} ${
-            theme.palette.mode === 'dark' ? styles.imageDark : styles.imageLight
-          }`}
+          className={styles.container}
+          display={'flex'}
+          flexDirection={'column'}
+          justifyContent={'flex-start'}
+          alignItems={'center'}
+          height={'100%'}
         >
           <Box
-            className={styles.image}
-            component={'img'}
-            src={image}
-            alt={'mockup'}
-          />
-        </Box>
-        <Typography
-          className={styles.title}
-          variant="h1"
-          sx={theme => ({
-            fontSize: '2rem',
-            margin: '1.5rem 0',
-            fontWeight: 600,
-            color: theme.palette.text.primary,
-            fontFamily: 'Courier New, Courier, monospace',
-          })}
-        >
-          {title}
-        </Typography>
-        {description && (
+            className={`${styles.imageWrapper} ${
+              theme.palette.mode === 'dark'
+                ? styles.imageDark
+                : styles.imageLight
+            }`}
+          >
+            {image ? (
+              <Box
+                className={styles.image}
+                component={'img'}
+                src={image}
+                alt={'mockup'}
+              />
+            ) : icon ? (
+              <Box
+                className={styles.iconContainer}
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  color: theme.palette.primary.main,
+                }}
+              >
+                {React.createElement(icon, { sx: { fontSize: '12rem' } })}
+              </Box>
+            ) : null}
+          </Box>
           <Typography
+            className={styles.title}
+            variant="h1"
             sx={theme => ({
-              textAlign: 'center',
-              maxWidth: '600px',
-              margin: '0 1rem 1.5rem 1rem',
-              color: theme.palette.text.secondary,
+              fontSize: '2rem',
+              margin: '1.5rem 0',
+              fontWeight: 600,
+              color: theme.palette.text.primary,
               fontFamily: 'Courier New, Courier, monospace',
-              fontSize: '1rem',
-              lineHeight: 1.5,
+              textAlign: 'center',
             })}
           >
-            {description}
+            {title}
           </Typography>
-        )}
-        <Box
-          className={styles.buttonContainer}
-          sx={{
-            display: 'flex',
-            gap: 2,
-            mt: 2,
-          }}
-        >
-          {live && (
-            <TerminalButton icon={<OpenInNew />} href={live}>
-              Live Demo
-            </TerminalButton>
+          {description && (
+            <Typography
+              sx={theme => ({
+                textAlign: 'center',
+                maxWidth: '600px',
+                margin: '0 1rem 1.5rem 1rem',
+                color: theme.palette.text.secondary,
+                fontFamily: 'Courier New, Courier, monospace',
+                fontSize: '1rem',
+                lineHeight: 1.5,
+              })}
+            >
+              {description}
+            </Typography>
           )}
-          {source && (
-            <TerminalButton icon={<Code />} href={source}>
-              Source Code
-            </TerminalButton>
-          )}
+          <Box
+            className={styles.buttonContainer}
+            sx={{
+              display: 'flex',
+              gap: 2,
+              mt: 2,
+            }}
+          >
+            {live && (
+              <TerminalButton icon={<OpenInNew />} href={live}>
+                Live Demo
+              </TerminalButton>
+            )}
+            {source && (
+              <TerminalButton icon={<Code />} href={source}>
+                Source Code
+              </TerminalButton>
+            )}
+          </Box>
         </Box>
-      </Box>
-    </Terminal>
+      </Terminal>
+    </Box>
   );
 };
 

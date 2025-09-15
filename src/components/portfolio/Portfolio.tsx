@@ -12,14 +12,16 @@ const Portfolio: React.FC = () => {
     >
       <Grid container display={'flex'} justifyContent={'center'} spacing={2}>
         {info.portfolio.map((project, index) => (
-          <Grid size={{ xs: 12, md: 6 }} key={index}>
+          <Grid size={{ xs: 12, md: 6 }} key={index} sx={{ display: 'flex' }}>
             <Box
               display={'flex'}
               flexDirection={'column'}
               alignItems={'center'}
+              width={'100%'}
             >
               <PortfolioBlock
                 image={project.image}
+                icon={project.icon}
                 live={project.live}
                 source={project.source}
                 title={project.title}

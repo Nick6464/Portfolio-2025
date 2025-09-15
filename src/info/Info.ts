@@ -1,6 +1,7 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
+import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
 import { SvgIconComponent } from '@mui/icons-material';
 import self from '../assets/self.png';
 import mock1 from '../assets/mock1.png';
@@ -40,7 +41,8 @@ export interface Info {
     title: string;
     live?: string;
     source?: string;
-    image: string;
+    image?: string;
+    icon?: SvgIconComponent;
     description?: string;
   }>;
 }
@@ -135,12 +137,11 @@ export const info: Info = {
         'A comprehensive boat registration system for New Zealand waters, leveraging NFC ID Tags',
     },
     {
-      title: 'Portfolio',
-      live: 'https://www.waltonit.dev',
-      source: 'https://github.com/Nick6464/Portfolio-2025',
-      image: mock3,
+      title: 'Orchid Shelf - Flood Irrigation System',
+      source: 'https://github.com/Nick6464/OrchidShelf',
+      icon: LocalFloristIcon,
       description:
-        'A modern, responsive portfolio website showcasing my projects and skills.',
+        'A Home Assistant-controlled flood irrigation system designed for orchids and other plants using ESP32, ESPHome, and reversible pumps for automated flood-and-drain cycles.',
     },
     {
       title: 'Procedual Generation of Flying Islands',
@@ -148,6 +149,14 @@ export const info: Info = {
       image: mock4,
       description:
         'A procedural generation algorithm for creating unique floating island landscapes using OpenSimplex Noise',
+    },
+    {
+      title: 'Portfolio',
+      live: 'https://www.waltonit.dev',
+      source: 'https://github.com/Nick6464/Portfolio-2025',
+      image: mock3,
+      description:
+        'A modern, responsive portfolio website showcasing my projects and skills.',
     },
     {
       title: 'GaragePi',
