@@ -2,7 +2,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
-import { SvgIconComponent } from '@mui/icons-material';
+import { Memory, SvgIconComponent } from '@mui/icons-material';
 import self from '../assets/self.png';
 import mock1 from '../assets/mock1.png';
 import mock2 from '../assets/mock2.png';
@@ -43,6 +43,7 @@ export interface Info {
     source?: string;
     image?: string;
     icon?: SvgIconComponent;
+    color?: string;
     description?: string;
   }>;
 }
@@ -142,6 +143,14 @@ export const info: Info = {
       icon: LocalFloristIcon,
       description:
         'A Home Assistant-controlled flood irrigation system designed for orchids and other plants using ESP32, ESPHome, and reversible pumps for automated flood-and-drain cycles.',
+    },
+    {
+      title: 'VL6180X ESPHome Component',
+      source: 'https://github.com/Nick6464/vl6180x-esphome',
+      icon: Memory,
+      color: '#FF6B35',
+      description:
+        'ESPHome custom component for the VL6180X time-of-flight distance sensor with accurate 5-200mm range measurements, I2C interface, and three-stage noise reduction for Home Assistant integration.',
     },
     {
       title: 'Procedual Generation of Flying Islands',

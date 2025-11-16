@@ -10,6 +10,7 @@ interface PortfolioBlockProps {
   live?: string;
   source?: string;
   title: string;
+  color?: string;
   description?: string;
 }
 
@@ -35,6 +36,7 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
   live,
   source,
   title,
+  color,
   description,
 }) => {
   const theme = useTheme();
@@ -75,7 +77,7 @@ const PortfolioBlock: React.FC<PortfolioBlockProps> = ({
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  color: theme.palette.primary.main,
+                  color: color || theme.palette.primary.main,
                 }}
               >
                 {React.createElement(icon, { sx: { fontSize: '12rem' } })}

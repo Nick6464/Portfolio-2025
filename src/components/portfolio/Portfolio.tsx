@@ -25,6 +25,7 @@ const Portfolio: React.FC = () => {
                 live={project.live}
                 source={project.source}
                 title={project.title}
+                color={project.color}
                 description={project.description}
               />
             </Box>
